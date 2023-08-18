@@ -1,0 +1,33 @@
+<div id="container-user d-flex flex-row justify-content-between px-3 py-4">
+	<!-- start content welcome user -->
+	<div class="flex-row px-3 py-4 container-user d-flex justify-content-between">
+		<span class="flex-shrink content-image-profile" onclick="profil()" role="button">
+			<div class="frame-image">
+				<img src="assets/images/logo.png" alt="profile" srcset="" id="dataImage" />
+			</div>
+		</span>
+		<div class="content-text flex-column w-100">
+			<p class="p-0 m-0 bodytext2 color-black500" id="dataName">Welcome !</p>
+			<p class="p-0 m-0 headline6 color-black500 semibold">My Kost Application</p>
+		</div>
+	</div>
+	<!-- end content welcome user -->
+
+	<!-- start content form search -->
+	<form class="mx-3 mb-4 form-search container-search d-flex justify-content-between align-items-center" style="height: 48px">
+		<div class="bg-white input-group-search h-100">
+			<input type="text" name="search" id="search" class="bodytext1 color-black800" placeholder="Cari barang di sini ..." required />
+		</div>
+		<button type="button" onclick="search" class="ml-3 h-100 d-flex align-items-center justify-content-center button-search" style="width: 48px">
+			<i class="text-white fi fi-br-search" onclick="searchHandler();"></i>
+		</button>
+	</form>
+	<!-- end content form search -->
+
+	<!-- start content product list -->
+	<div class="container-products w-100">
+		<div id="load_data" class="px-2 py-2 row container-product w-100"></div>
+		<div id="load_data_message" class="px-2 py-2 row container-product w-100"></div>
+	</div>
+	<!-- end content product list -->
+</div>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>My Kost Apllication</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/navigation.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/shimmer.css" />
+		<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+		<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+		<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet" />
+		<link rel="manifest" href="manifest.json" />
+	</head>
+
+	<body class="pt-0 align-items-start flex-column">
+		<main role="main" class="pt-0 pl-0 pr-0 container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+			<div id="content"></div>
+		</main>
+
+		<!-- start content footer -->
+		<footer class="flex-row p-3 m-auto mb-4 container-footer w-100 justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12"></footer>
+
+		<!-- start navigation bottom -->
+		<nav class="m-auto text-center bg-white shadow-sm navbar bottom-nav fixed-bottom navbar-expand col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+			<button class="float-right btn fab" id="tambah" onclick="mdOpen();">
+				<i class="fi fi-br-plus"></i>
+				<span class="ml-2">Tambah Kost</span>
+			</button>
+
+			<div class="bottom-nav-item" id="home" onclick="home();">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-home unselected"></i>
+						<i class="fi fi-sr-home selected"></i>
+					</p>
+					<span>Beranda</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item" id="kost" onclick="kost();">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-home-location-alt unselected"></i>
+						<i class="fi fi-rr-home-location-alt selected"></i>
+					</p>
+					<span>Kost</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item" id="pembelian" onclick="pembelian();">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-ballot unselected"></i>
+						<i class="fi fi-rr-ballot selected"></i>
+					</p>
+					<span>Pembelian</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item" id="profil" onclick="profil();">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-user unselected"></i>
+						<i class="fi fi-sr-user selected"></i>
+					</p>
+					<span>Profil</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item" onclick="info();">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-comment-info unselected"></i>
+						<i class="fi fi-rr-comment-info selected"></i>
+					</p>
+					<span>Tentang</span>
+				</div>
+			</div>
+		</nav>
+		<!-- end navigation bottom -->
+
+		<div class="modal fade" tabindex="-1" id="md-barang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable" role="document">
+				<div class="modal-content">
+					<form id="form-barang">
+						<div class="modal-header">
+							<h5 class="modal-title" id="md-barang-title"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<input class="d-none" id="id" name="id" />
+							<div class="form-group">
+								<label>Nama Kost</label>
+								<input class="form-control" type="text" id="nama" name="nama" required />
+							</div>
+							<div class="form-group">
+								<label>Harga</label>
+								<input class="form-control" type="harga" id="harga" name="harga" required />
+							</div>
+							<div class="form-group">
+								<label>Alamat</label>
+								<input class="form-control" type="text" id="alamat" name="alamat" required />
+							</div>
+							<div class="row">
+								<div class="col-4">
+									<div class="form-group">
+										<label for="kasur">Kasur</label>
+										<select
+											class="form-control"
+											id="kasur"
+											name="kasur"
+										>
+											<option>Ada</option>
+											<option>
+												Tidak
+											</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="form-group">
+										<label for="lemari">Lemari</label>
+										<select
+											class="form-control"
+											id="lemari"
+											name="lemari"
+										>
+											<option>Ada</option>
+											<option>
+												Tidak
+											</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="form-group">
+										<label for="Wifi">Wifi</label>
+										<select
+											class="form-control"
+											id="Wifi"
+											name="wifi"
+										>
+											<option>Ada</option>
+											<option>
+												Tidak
+											</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="kamar_mandi">Kamar Mandi</label>
+								<select class="form-control" id="kamar_mandi" name="kamar_mandi">
+									<option>Luar</option>
+									<option>Dalam</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Foto</label>
+								<input type="file" id="image" name="image" />
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+							<button type="submit" id="btnSubmit" class="btn btn-primary">Simpan</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" tabindex="-1" id="md-pembelian" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<form id="form-pembelian">
+						<div class="modal-header">
+							<h5 class="modal-title">Sewa Kost</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<input class="d-none" id="id_pembelian" name="id" />
+							<input class="d-none" id="kost_id" name="kost_id" />
+							<div class="form-group">
+								<label>Nama</label>
+								<input class="form-control" type="text" id="nama" name="nama" required />
+							</div>
+							<div class="form-group">
+								<label>No Hp</label>
+								<input class="form-control" type="number" id="no_hp" name="no_hp" required />
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+							<button type="submit" id="btnSubmit" class="btn btn-primary">Simpan</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" tabindex="-1" id="md-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="md-dialog-title">Aksi</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<center class="flex-column d-flex">
+							<button
+								class="my-1 text-white btn"
+								style="background-color: goldenrod"
+								id="btnBeli"
+								onclick="mdPembelian(this.getAttribute('data-id'))"
+							>
+								<i class="fi fi-rr-ticket"></i> Sewa kost
+							</button>
+							<button
+								class="my-1 text-white btn btn-warning"
+								id="btnDetail"
+								style="background-color: blueviolet"
+								onclick="detail(this.getAttribute('data-id'))"
+							>
+								<i class="fi fi-rr-document"></i> Lihat detail
+							</button>
+							<button
+								class="my-1 btn btn-primary"
+								id="btnEdit"
+								style="background-color: salmon"
+								onclick="edit(this.getAttribute('data-id'))"
+							>
+								<i class="fi fi-rr-edit"></i> Edit
+							</button>
+							<button class="my-1 btn btn-danger" id="btnHapus" onclick="hapus(this.getAttribute('data-id'))">
+								<i class="fi fi-rr-trash"></i> Delete
+							</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" tabindex="-1" id="md-detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Detail</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-2 product-cover detail-image" id="dt-img"></div>
+						<div class="form-group">
+							<label class="font-weight-bold">Nama kost</label>
+							<p id="dt-nama" name="dt-nama"></p>
+						</div>
+						<div class="form-group">
+							<label class="font-weight-bold">Harga</label>
+							<p id="dt-harga" name="dt-harga"></p>
+						</div>
+						<div class="form-group">
+							<label class="font-weight-bold">Alamat</label>
+							<p id="dt-alamat" name="dt-alamat"></p>
+						</div>
+						<div class="form-group">
+							<label class="font-weight-bold">Kasur</label>
+							<p id="dt-kasur" name="dt-kasur"></p>
+						</div>
+						<div class="form-group">
+							<label class="font-weight-bold">Lemari</label>
+							<p id="dt-lemari" name="dt-lemari"></p>
+						</div>
+						<div class="form-group">
+							<label class="font-weight-bold">Wifi</label>
+							<p id="dt-wifi" name="dt-wifi"></p>
+						</div>
+						<div class="form-group">
+							<label class="font-weight-bold">Kamar Mandi</label>
+							<p id="dt-kamar_mandi" name="dt-kamar_mandi"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-3.6.1.min.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="assets/js/register.js"></script>
+		<script src="assets/js/script.js"></script>
+		<script type="module">
+			// Import the functions you need from the SDKs you need
+			import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js';
+			import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js';
+			import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-messaging.js';
+			// TODO: Add SDKs for Firebase products that you want to use
+			// https://firebase.google.com/docs/web/setup#available-libraries
+
+			// Your web app's Firebase configuration
+			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+			const firebaseConfig = {
+				apiKey: 'AIzaSyDXA3a8roMWZ-MQNkWhyAEfu5DDw5oPKpM',
+				authDomain: 'toko-online-4dac1.firebaseapp.com',
+				projectId: 'toko-online-4dac1',
+				storageBucket: 'toko-online-4dac1.appspot.com',
+				messagingSenderId: '162035752920',
+				appId: '1:162035752920:web:45871d1d88b5939c0a5cad',
+				measurementId: 'G-P0X0MRC8EG',
+			};
+
+			// Initialize Firebase
+			const app = initializeApp(firebaseConfig);
+			const analytics = getAnalytics(app);
+
+			const messaging = getMessaging();
+			getToken(messaging, { vapidKey: 'BHLZY9bQorTWX5M0y2tyQRC-dYj1GRvKdv9RZxhyhncUSK6PqGtgmgG-i3We0gHF7I2CB0P7dOzeJ5MaXrLjbD4' })
+				.then((currentToken) => {
+					if (currentToken) {
+						console.log(currentToken);
+						// Send the token to your server and update the UI if necessary
+						// ...
+					} else {
+						// Show permission request UI
+						console.log('No registration token available. Request permission to generate one.');
+						// ...
+					}
+				})
+				.catch((err) => {
+					console.log('An error occurred while retrieving token. ', err);
+					// ...
+				});
+
+			onMessage(messaging, (payload) => {
+				const notificationOption = {
+					body: payload.notification.body,
+					icon: payload.notification.icon,
+				};
+
+				if (Notification.permission === 'granted') {
+					var notification = new Notification(payload.notification.title, notificationOption);
+
+					notification.onclick = function (ev) {
+						ev.preventDefault();
+						window.open('index.html', '_blank');
+						notification.close();
+					};
+				}
+			});
+		</script>
+	</body>
+</html>
